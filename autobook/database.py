@@ -2,10 +2,9 @@
 import os
 from functools import wraps
 from pathlib import Path
-from tinydb import TinyDB, Query, where
+from tinydb import TinyDB, where
 from tinydb.operations import delete
 from tinydb.table import Document
-
 from tinydb.queries import QueryInstance
 from typing import Callable
 
@@ -16,7 +15,13 @@ def init_db(table_name: str) -> Callable:
     Database will be stored in instance/db.json by default.
     Set AUTOBOOK_DB_FILENAME in your environment to change the filename.
 
-    @init_db(table_name): the following function will interact with the desired table
+    Use as follows:
+
+    @init_db(table_name)
+    def your_function(db, your_parameter):
+        db.operation()
+
+    your_function(your_argument)
     """
 
     def decorator(func: Callable) -> Callable:
@@ -53,11 +58,14 @@ def all_books(db) -> list[Document]:
 
 
 def unfinished_field(field: str) -> QueryInstance:
-    """Return a query which filters for a field not existing, or having a None or empty string value"""
+    """Return a query which filters for a field not existing,
+    or having a None or empty string value
+    """
     return (where(field).one_of([None, ""])) | ~(where(field).exists())
 
 
-# TODO: so this is intended to return books that are not "finished", as in not all their applicable fields are filled in
+# TODO: so this is intended to return books that are not "finished",
+# as in not all their applicable fields are filled in
 # however, it is only deciding this based on these three fields...
 # Perhaps books should have a finished flag set on completion
 # Perhaps books should simply be listed with their present flags
