@@ -1,0 +1,48 @@
+######################
+#                    #
+#   Python-related   #
+#                    #
+######################
+
+# Python
+__pycache__/
+
+# pytest
+.pytest_cache/
+
+# virtual environment
+venv/
+
+# mypy
+.mypy_cache/
+
+########################
+#                      #
+#   autobook-related   #
+#                      #
+########################
+
+# temporary cover file for ebooks
+cover.png
+
+# need output folder for ebooks but not contents
+output/*
+!output/.gitkeep
+
+# need instance folder for database storage
+instance/*
+!instance/.gitkeep
+
+######################
+#                    #
+#   editor-related   #
+#                    #
+######################
+
+# vscode settings
+.vscode/
+
+# emacs temp files
+\#*\#
+.\#*
+*~
