@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep -r 'TODO' {autobook,cli,tests}/.

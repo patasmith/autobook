@@ -18,8 +18,7 @@ def list_book(book_id: int) -> dict[str, Any]:
 
 def simple_list_of_books(raw_books: list) -> list:
     """Given a list of books, return a list of their ids and topics."""
-    return [{"id": book["book_id"],
-             "topic": book["topic"]} for book in raw_books]
+    return [{"id": book["book_id"], "topic": book["topic"]} for book in raw_books]
 
 
 def list_books() -> list[dict[str, Any] | None]:
