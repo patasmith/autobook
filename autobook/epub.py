@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import datetime
+import os
 import uuid
 from PIL import Image
 from dominate.tags import h1, h2, p
@@ -92,6 +93,7 @@ def chapters_to_book(
     with open("cover.png", "rb") as file:
         book.set_cover("cover.png", file.read())
     book.spine.append("cover")
+    os.remove("cover.png")
 
     print("Adding CSS...")
     # Add css file

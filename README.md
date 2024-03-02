@@ -1,17 +1,37 @@
 # AutoBook
-An ebook generator.
+An ebook generator in development.
+
+You can:
+- Create books
+- Generate and edit book content
+- Store books in a simple JSON database file
+- Export books to text or epub
+
+All books are generated using a simple outline structure. Prompts are naive: individual chapters will reflect content of outline but not content of other chapters.
 
 ## To run
 
 ### Setup
+Clone or fork this repository.
+
 Add your OpenAI API key to your environment as `OPENAI_API_KEY`.
 
-### CLI
-`./run "Your topic here" n` where n is the number of chapters you'd like.
+Model and parameters are hardcoded (for now) in `autobook/book.py`.
 
-`./run -h` to see options.
+### CLI
+`./run -h` to see available subcommands.
 
 `./run <subcommand> -h` to see options for each command.
+
+#### Examples
+
+`./run create` to make your first book.
+
+`./run create -o "apples" -n 5` to begin creating a 5-chapter book about apples.
+
+`./run list` to view all created books.
+
+`./run export -f epub 1 apples.epub` to export the book with book_id 1 using the epub format.
 
 ## Development notes
 
