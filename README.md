@@ -1,5 +1,5 @@
 # AutoBook
-An ebook generator in development.
+An ebook generator in development. Uses the OpenAI API.
 
 You can:
 - Create books
